@@ -15,6 +15,7 @@ int main(int argc, char *argv[]){
 		}
 
 		size_t byteRead = fread(buffer, 1, sizeof(buffer), fp);
+		printf("%d ", byteRead);
 		for(size_t i = 0; i < byteRead; i++){
 			printf("%02X ", buffer[i]);
 		}
