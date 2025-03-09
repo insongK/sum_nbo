@@ -2,7 +2,6 @@
 #include <stdint.h>
 
 uint32_t htonl(uint32_t u32);
-uint32_t load_u32(FILE *fp);
 
 int main(int argc, char *argv[]){
 	if(argc < 2){
@@ -13,12 +12,10 @@ int main(int argc, char *argv[]){
 	for(int i = 1; i < argc; i++){
 		FILE *fp = fopen(argv[i], "rb");
 		uint32_t u32;
-
 		if(fp == NULL)     continue;	
 
 		size_t read_size = fread(&u32, sizeof(uint8_t), 8, fp);
 		fclose(fp);
-
 		if(read_size != 4) continue;
 		
 		answer += u32 = htonl(u32);
